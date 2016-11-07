@@ -1,0 +1,23 @@
+<%=bootstrap_form_for(@user, action: "create") do |f|%>
+   <div class="col-2">
+      <label>
+        <%=f.text_field :username %>
+     </label>
+    </div>
+    <div class="col-2">
+      <label>
+        <%=f.text_field :email%>
+      </label>
+    <div>
+    <div class="col-2">
+      <label>
+        <%=f.password_field :password %>
+      </label>
+    </div>
+    <%if @errors %>
+      <%@errors %>
+    <% end %>
+    <div class="col-submit">
+      <%=f.submit "Register"%>
+    </div>
+<% end %>

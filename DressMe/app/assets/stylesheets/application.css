@@ -13,3 +13,27 @@
  *= require_tree .
  *= require_self
  */
+
+ @import "bootstrap";
+@import 'rails_bootstrap_forms';
+
+.homepage{
+  background-image: url("dish.jpg");
+  background-size: 100%;
+}
+
+.welcome h1 {
+  text-align:  center;
+}
+
+.welcome h3{
+  text-align:  center;
+}
+
+.navbar-inverse {
+  margin-bottom: -20px;
+}
+
+.profile{
+  text-align: center;
+}
