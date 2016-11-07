@@ -12,7 +12,6 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
-
   <title>DressMe</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -41,9 +40,7 @@
 
           <% else %> 
           <li class="active"><%=link_to "Register", new_user_path %><span class="sr-only">(current)</span></a></li>
-          <li>
-            <a href="/login" data-toggle="modal" data-target="#login-modal">Login</a>
-          </li>
+          <!-- <li class="active"><%=link_to "Login", users_login_path %><span class="sr-only">(current)</span></a></li> -->
         <% end %> 
 
 
