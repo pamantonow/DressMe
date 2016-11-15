@@ -15,7 +15,7 @@
  */
 
 @import "bootstrap";
-@import 'rails_bootstrap_forms';
+@import "rails_bootstrap_forms";
 
 .homepage{
   background-image: url("dish.jpg");

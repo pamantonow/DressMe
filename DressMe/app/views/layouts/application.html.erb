@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script src="js/jquery-1.11.0.min.js"></script>
+  <!-- Latest compiled and minified CSS -->
+<script src="js/jquery-1.11.0.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -12,7 +13,11 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
+
+<!-- Latest compiled and minified JavaScript -->
+
   <title>DressMe</title>
+  <%= csrf_meta_tags %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -31,40 +36,38 @@
 
       <%= link_to "DressMe", root_path, class: "navbar-brand" %>
     </div>
-     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <%if current_user %>
-          <li><%= link_to "Profile", current_user %></li>
+          <li><%= link_to "#{current_user.username}", current_user %></li>
           <li><%= link_to "Logout", logout_path %></li>
-          <li><a href="#">Hello <%=current_user.username %></a></li>
-
           <% else %> 
           <li class="active"><%=link_to "Register", new_user_path %><span class="sr-only">(current)</span></a></li>
           <li>
             <a href="/login" data-toggle="modal" data-target="#login-modal">Login</a>
           </li>
         <% end %> 
+    </div>
+  </nav>
         
 <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
   <div class="modal-dialog">
     <div class="loginmodal-container">
       <h1>Login to Your Account</h1><br> 
         <%= bootstrap_form_tag(url:"/login",method: "post") do |f| %>
-         <center>
-        <%= f.email_field :email, placeholder: "email" %>
-        <%= f.password_field :password, placeholder: "password"%>
-        <%= f.submit "Login" %>
-        </center>
+          <center>
+           <%= f.email_field :email, placeholder: "email" %>
+           <%= f.password_field :password, placeholder: "password"%>
+           <%= f.submit "Login" %>
+          </center>
         <% end %>   
-            <div class="login-help">
-               <a href="/signup"><h4>Register</h4></a>
-             </div>
+          <div class="login-help">
+              <a href="/signup"><h4>Register</h4></a>
+          </div>
+     </div>
+
     </div>
-
   </div>
-</div>
-
-
 <%= yield %>
 
 </body>
